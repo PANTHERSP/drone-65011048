@@ -47,7 +47,7 @@ const TemperatureLogFormScreen = () => {
         console.log("event:", event.target.temperature.value);
         event.target.temperature.value = '';
         // setTemperature('');
-        await fetch('http://localhost:3000/logs', {
+        await fetch('https://drone-65011048.vercel.app/api/logs', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
