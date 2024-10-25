@@ -1,0 +1,19 @@
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 15vh;
+    /* background: linear-gradient(45deg, #1b013e, #f10d09);    color: #000000; */
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../assets/3540662.jpg");
+    color: white;
+    display: flex;
+    border-bottom: 4px solid rgb(255, 255, 255);
+    /* justify-content: center; */
+    /* justify-content: space-between; */
+    /* padding-left: 50px; */
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+    z-index: 10;
+}

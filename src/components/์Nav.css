@@ -1,0 +1,65 @@
+/* src/components/Nav.css */
+.sidebar {
+    height: 85vh; /* ให้ความสูงเต็มหน้าจอ */
+    width: 250px;  /* ความกว้างของ sidebar */
+    position: fixed; /* ติด sidebar ไว้ที่ข้าง */
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(45deg, #1b013e, #510504); /* สีพื้นหลัง */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 0 0 30px 0;
+    z-index: 10;
+    border-right: 4px solid rgb(255, 255, 255);
+}
+
+.sidebar ul {
+    list-style-type: none; /* เอา bullet ออก */
+    padding: 10px;
+    background-color: rgba(122, 39, 200, 0.189);
+    height: 100%;
+    border: 2px solid rgb(254, 254, 255);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column
+    
+}
+
+.sidebar ul li {
+    padding-block: 12px; /* ให้พื้นที่แต่ละรายการ */
+    /* text-align: center; */
+    /* width: 100%; */
+    /* background-color: #7b0200; */
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar ul li a {
+    color: white; /* สีข้อความ */
+    /* display: block; */
+    text-decoration: none; /* เอาเส้นขีดล่างออก */
+    font-size: 16px; /* ขนาดฟอนต์ */
+    background-color: rgb(0, 0, 0);
+    border-radius: 10px;
+    padding-inline: 15px;
+    padding-block: 5px;
+    border: 2px solid rgb(255, 255, 255);
+    border-bottom: 5px solid rgb(255, 255, 255);
+    /* width: 100%; */
+}
+
+.sidebar ul li a:hover {
+    background-color: #575757; /* เปลี่ยนสีเมื่อ hover */
+    border-radius: 100px;
+    padding-inline: 15px;
+    padding-block: 5px;
+}
+
+.sidebar  li a.active,
+.sidebar  li a.active:hover {
+    background-color: #074685; /* เปลี่ยนสีเมื่อเมาส์อยู่บนปุ่ม */
+    border-radius: 100px;
+    padding-inline: 15px;
+    padding-block: 5px;
+}
