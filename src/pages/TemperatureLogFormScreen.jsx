@@ -47,7 +47,7 @@ const TemperatureLogFormScreen = () => {
         console.log("event:", event.target.temperature.value);
         event.target.temperature.value = '';
         // setTemperature('');
-        await fetch('/api/logs', {
+        await fetch('/logs', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

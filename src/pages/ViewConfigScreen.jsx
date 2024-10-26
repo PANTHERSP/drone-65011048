@@ -27,7 +27,7 @@ const ViewConfigScreen = () => {
     
     
     const fetchConfig = async () => {
-        const res = await fetch('/api/configs/40');
+        const res = await fetch('/configs/40');
         const data = await res.json();
         setDroneData(data);
     };
