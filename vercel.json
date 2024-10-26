@@ -19,6 +19,7 @@
         "source": "/(.*)",
         "destination": "/"
       }
-    ]
+    ],
+    "region": "sin1"
   }
   
