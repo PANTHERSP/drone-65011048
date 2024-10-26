@@ -26,7 +26,7 @@ const ViewLogsScreen = () => {
       };
 
     const fetchLogs = async () => {
-        const res = await fetch(`https://drone-65011048.vercel.app/api/logs?filter=(drone_id=65011048)`);
+        const res = await fetch(`/api/logs?filter=(drone_id=65011048)`);
         const data = await res.json();
         const filteredData = data.items.filter(item => item.drone_id === 65011048);
 
