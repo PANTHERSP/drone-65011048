@@ -5,23 +5,23 @@
         "src": "package.json",
         "use": "@vercel/static-build",
         "config": {
-        "distDir": "dist",
-        "buildCommand": "npm run build"
-      }
+          "distDir": "dist",
+          "buildCommand": "npm run build"
+        }
       },
       {
         "src": "api/server.js",
         "use": "@vercel/node"
       }
     ],
-    "rewrites": [
+    "routes": [
       {
-        "source": "/api/(.*)",
-        "destination": "/api/server.js"
+        "src": "/api/(.*)",
+        "dest": "/api/server.js"
       },
       {
-        "source": "/(.*)",
-        "destination": "/"
+        "src": "/(.*)",
+        "dest": "/"
       }
     ]
   }
