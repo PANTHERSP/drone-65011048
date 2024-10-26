@@ -14,16 +14,6 @@
         "use": "@vercel/node"
       }
     ],
-    "routes": [
-      {
-        "src": "/api/(.*)",
-        "dest": "api/server.js"
-      },
-      {
-        "src": "/(.*)",
-        "dest": "/dist/index.html"
-      }
-    ],
     "rewrites": [
       {
         "source": "/api/(.*)",
