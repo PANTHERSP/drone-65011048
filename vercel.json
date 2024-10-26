@@ -3,11 +3,7 @@
     "builds": [
       {
         "src": "package.json",
-        "use": "@vercel/static-build",
-        "config": {
-          "distDir": "dist",
-          "buildCommand": "npm run build"
-        }
+        "use": "@vercel/static-build"
       },
       {
         "src": "api/server.js",
@@ -21,7 +17,7 @@
       },
       {
         "src": "/(.*)",
-        "dest": "/index.html"
+        "dest": "/"
       }
     ]
   }
