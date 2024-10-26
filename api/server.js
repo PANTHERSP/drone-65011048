@@ -14,56 +14,52 @@ app.get('/', (req, res) => {
     res.json({ message : 'Hello World!' });
 });
 
-app.get('/configs/:id', (req, res) => {
-
-    
-    const response = axios.get(droneConfigServerUrl).then(data => res.json(data.data.data[req.params.id]));
-    const response2 = axios.get(droneConfigServerUrl).then(data => console.log(data.data));
-});
-app.get('/configs', (req, res) => {
-
-    const response = axios.get(`${droneConfigServerUrl}?filter=(drone_id=65011048)`).then(data => res.json(data.data.data));
-    const response2 = axios.get(droneConfigServerUrl).then(data => console.log(data.data));
-    // response = axios.get(droneConfigServerUrl).then(data => res.json(data.data.data[req.params.id]));
-    // response = axios.get(droneConfigServerUrl).then(data => console.log(data.data));
-});
-
-app.get('/status/:id', (req, res) => {
-
-    const response = axios.get(droneConfigServerUrl).then(data => console.log(data.data.data[req.params.id].condition));
-});
-
-app.get('/logs', (req, res) => {
-
-    const perPage = parseInt(req.query.perPage) || 500;
-    const page = parseInt(req.query.page) || 1;
-    const response = axios.get(`${droneLogServerUrl}?filter=(drone_id=65011048)&perPage=500`).then(data => res.json(data.data))
-    .catch(error => res.status(500).json({ error: error.message }));
-    const response2 = axios.get(`${droneLogServerUrl}?filter=(drone_id=65011048)&perPage=500`).then(data => {
-        // const filteredData = data.data.items.filter(item => item.drone_id === 65011048);
-        console.log(data.data);
-        // console.log(data.data);
-    });
-})
-
-app.post('/logs', (req, res) => {
-    // res.json({ message : 'Hello World!' });
-
-    // const response = axios.post(droneLogServerUrl, {
-    //     temperature: req.body.temperature,
-    // }).then(data => res.json(data.data));
-
-    console.log(req.body);
-
-    const response = axios.post(droneLogServerUrl, {
-        ...req.body
-    }).then(data => {
-        console.log(data.data);
-        // res.json(data.data)
+app.get('/configs/:id', async (req, res) => {
+    try {
+        const { data } = await axios.get(droneConfigServerUrl);
+        res.json(data.data[req.params.id]);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
     }
-        
-    )
-})
+});
+
+app.get('/configs', async (req, res) => {
+    try {
+        const { data } = await axios.get(`${droneConfigServerUrl}?filter=(drone_id=65011048)`);
+        res.json(data.data);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
+app.get('/status/:id', async (req, res) => {
+    try {
+        const { data } = await axios.get(droneConfigServerUrl);
+        res.json(data.data[req.params.id].condition);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
+app.get('/logs', async (req, res) => {
+    try {
+        const perPage = parseInt(req.query.perPage) || 500;
+        const page = parseInt(req.query.page) || 1;
+        const { data } = await axios.get(`${droneLogServerUrl}?filter=(drone_id=65011048)&perPage=${perPage}&page=${page}`);
+        res.json(data);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
+app.post('/logs', async (req, res) => {
+    try {
+        const { data } = await axios.post(droneLogServerUrl, { ...req.body });
+        res.json(data);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
 
 
 app.listen(3000, () => {
